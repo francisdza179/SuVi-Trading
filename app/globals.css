@@ -1,0 +1,841 @@
+@import "tailwindcss";
+
+/* =========================================================
+   SuVi Trading — Industrial Editorial Design System
+   Tailwind CSS v4 — CSS-first configuration
+   ========================================================= */
+
+@theme {
+  /* ------------------------------------------------------
+     Typography
+     ------------------------------------------------------ */
+  --font-heading: var(--font-jakarta), "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: var(--font-jakarta), "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans: var(--font-body);
+
+  /* ------------------------------------------------------
+     Color Palette — 60 / 30 / 10
+     Steel Grey · Blueprint Blue · Copper Accent
+     ------------------------------------------------------ */
+
+  /* 60% Steel Grey */
+  --color-steel-50: #3E3E40;
+  --color-steel-100: #4D4D4F;
+  --color-steel-200: #5C5C5E;
+  --color-steel-300: #6B6B6D;
+  --color-steel-400: #7A7A7C;
+  --color-steel-500: #89898B;
+  --color-steel-600: #98989A;
+  --color-steel-700: #A7A7A9;
+  --color-steel-800: #B6B6B8;
+  --color-steel-900: #C5C5C7;
+  --color-steel: #2F2F31;
+  --color-steel-dark: #232325;
+  --color-steel-darker: #18181A;
+
+  /* 30% Blueprint Blue */
+  --color-blueprint-50: #24568D;
+  --color-blueprint-100: #2A629D;
+  --color-blueprint-200: #306EAE;
+  --color-blueprint-300: #367ABE;
+  --color-blueprint-400: #3C86CE;
+  --color-blueprint-500: #4292DE;
+  --color-blueprint-600: #5BA3E6;
+  --color-blueprint-700: #74B4EC;
+  --color-blueprint-800: #8DC5F1;
+  --color-blueprint-900: #A6D6F6;
+  --color-blueprint: #1E4A7B;
+  --color-blueprint-dark: #16385D;
+
+  /* 10% Copper Accent */
+  --color-copper-50: #CF7A4E;
+  --color-copper-100: #DA8A62;
+  --color-copper-200: #E59A76;
+  --color-copper-300: #F0AA8A;
+  --color-copper-400: #F5BA9E;
+  --color-copper-500: #FACAB2;
+  --color-copper-600: #FFD8C6;
+  --color-copper: #C46A3A;
+  --color-copper-dark: #A0552D;
+
+  /* Neutrals — insulation whites / concrete greys */
+  --color-insulation: #F7F7F8;
+  --color-concrete-50: #FAFAFA;
+  --color-concrete-100: #F0F0F1;
+  --color-concrete-200: #E6E6E7;
+  --color-concrete-300: #DCDCDD;
+  --color-concrete-400: #D2D2D3;
+  --color-concrete-500: #C8C8C9;
+  --color-concrete: #BDBDBE;
+  --color-concrete-700: #A4A4A5;
+
+  /* Semantic aliases */
+  --color-background: var(--color-insulation);
+  --color-foreground: var(--color-steel);
+  --color-primary: var(--color-blueprint);
+  --color-primary-foreground: var(--color-insulation);
+  --color-accent: var(--color-copper);
+  --color-accent-foreground: var(--color-insulation);
+  --color-muted: var(--color-concrete-100);
+  --color-muted-foreground: var(--color-steel-500);
+  --color-border: var(--color-concrete-300);
+
+  /* ------------------------------------------------------
+     Spacing — Industrial rhythm
+     ------------------------------------------------------ */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 40px;
+  --spacing-2xl: 64px;
+  --spacing-3xl: 96px;
+
+  /* ------------------------------------------------------
+     Border radius — precise, technical
+     ------------------------------------------------------ */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+
+  /* ------------------------------------------------------
+     Shadows — micro bevels + engineered depth
+     ------------------------------------------------------ */
+  --shadow-xs: 0 1px 2px rgba(47, 47, 49, 0.04);
+  --shadow-sm: 0 1px 2px rgba(47, 47, 49, 0.05), 0 2px 4px rgba(47, 47, 49, 0.03);
+  --shadow-md: 0 4px 8px rgba(47, 47, 49, 0.04), 0 2px 4px rgba(47, 47, 49, 0.03), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --shadow-lg: 0 12px 24px rgba(47, 47, 49, 0.08), 0 4px 8px rgba(47, 47, 49, 0.04);
+  --shadow-bevel: 0 1px 2px rgba(47, 47, 49, 0.04), 0 4px 8px rgba(47, 47, 49, 0.03), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  --shadow-bevel-hover: 0 8px 16px rgba(47, 47, 49, 0.06), 0 4px 8px rgba(47, 47, 49, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  --shadow-industrial: 0 4px 12px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+  /* ------------------------------------------------------
+     Animations
+     ------------------------------------------------------ */
+  --animate-shift-border: shift-border 3s ease infinite;
+  --animate-grain: grain 8s steps(10) infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-subtle: pulse-subtle 4s ease-in-out infinite;
+  --animate-slide-up: slide-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-fade-in: fade-in 0.5s ease-out forwards;
+  --animate-marquee: marquee 120s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 120s linear infinite;
+  --animate-marquee-vertical: marquee-vertical 60s linear infinite;
+  --animate-progress-scan: progress-scan 4s ease-in-out infinite;
+
+  @keyframes shift-border {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  @keyframes grain {
+    0%, 100% { transform: translate(0, 0); }
+    10% { transform: translate(-5%, -10%); }
+    20% { transform: translate(-15%, 5%); }
+    30% { transform: translate(7%, -15%); }
+    40% { transform: translate(-5%, 15%); }
+    50% { transform: translate(-15%, 10%); }
+    60% { transform: translate(15%, 0%); }
+    70% { transform: translate(0%, 10%); }
+    80% { transform: translate(3%, -20%); }
+    90% { transform: translate(-10%, 10%); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  @keyframes pulse-subtle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.85; }
+  }
+
+  @keyframes slide-up {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes marquee {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-50%, 0, 0); }
+  }
+
+  @keyframes marquee-reverse {
+    0% { transform: translate3d(-50%, 0, 0); }
+    100% { transform: translate3d(0, 0, 0); }
+  }
+
+  @keyframes marquee-vertical {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(0, -50%, 0); }
+  }
+
+  @keyframes progress-scan {
+    0% { width: 0%; }
+    50% { width: 100%; }
+    100% { width: 0%; }
+  }
+
+  @keyframes slide-progress {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+}
+
+/* =========================================================
+   Base Styles
+   ========================================================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-insulation);
+  color: var(--color-steel);
+  font-family: var(--font-body);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--color-steel);
+  width: 100%;
+  max-width: none;
+  display: block;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw + 1rem, 4.5rem);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3vw + 1rem, 3rem);
+}
+
+h3 {
+  font-size: clamp(1.125rem, 2vw + 0.5rem, 1.5rem);
+}
+
+h4 {
+  font-size: clamp(1rem, 1.5vw + 0.5rem, 1.25rem);
+}
+
+p, li {
+  line-height: 1.65;
+}
+
+::selection {
+  background-color: rgba(196, 106, 58, 0.2);
+  color: var(--color-steel-dark);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-blueprint);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   Text Wrapping & Layout Fixes
+   ========================================================= */
+
+/* Prevent vertical text stacking in grid/flex containers */
+.grid > *,
+.flex > * {
+  min-width: 0;
+}
+
+/* =========================================================
+   Emergency Heading & Text Layout Reset
+   ========================================================= */
+
+/* Reset headings - remove restrictive widths, allow natural flow */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-steel);
+  flex-basis: auto;
+  display: block;
+  overflow-wrap: break-word;
+  word-break: normal;
+  white-space: normal;
+  line-height: 1.15;
+}
+
+/* Fluid responsive sizing */
+h1 {
+  font-size: clamp(2rem, 5vw + 1rem, 4.5rem);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3vw + 1rem, 3rem);
+}
+
+h3 {
+  font-size: clamp(1.125rem, 2vw + 0.5rem, 1.5rem);
+}
+
+h4 {
+  font-size: clamp(1rem, 1.5vw + 0.5rem, 1.25rem);
+}
+
+/* Ensure text blocks use proper display */
+p {
+  display: block;
+  overflow-wrap: break-word;
+  word-break: normal;
+  white-space: normal;
+}
+
+span, a, li, td, th {
+  display: revert;
+  overflow-wrap: break-word;
+  word-break: normal;
+  white-space: normal;
+}
+
+
+/* Ensure containers don't stretch edge-to-edge */
+section {
+  width: 100%;
+}
+
+/* =========================================================
+   Custom Utilities
+   ========================================================= */
+
+@utility font-heading {
+  font-family: var(--font-heading);
+}
+
+@utility font-body {
+  font-family: var(--font-body);
+}
+
+@utility bg-steel {
+  background-color: var(--color-steel);
+  color: var(--color-insulation);
+}
+
+@utility bg-steel-dark {
+  background-color: var(--color-steel-dark);
+  color: var(--color-insulation);
+}
+
+@utility bg-blueprint {
+  background-color: var(--color-blueprint);
+  color: var(--color-insulation);
+}
+
+@utility bg-insulation {
+  background-color: var(--color-insulation);
+}
+
+@utility bg-concrete {
+  background-color: var(--color-concrete-100);
+}
+
+@utility blueprint-grid {
+  background-image:
+    linear-gradient(to right, rgba(30, 74, 123, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(30, 74, 123, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+@utility blueprint-grid-sm {
+  background-image:
+    linear-gradient(to right, rgba(30, 74, 123, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(30, 74, 123, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+@utility blueprint-line {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, rgba(30, 74, 123, 0.35), transparent);
+}
+
+@utility blueprint-line-copper {
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, var(--color-copper), transparent);
+}
+
+@utility bevel-card {
+  background-color: var(--color-insulation);
+  border: 1px solid var(--color-concrete-300);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-bevel);
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+}
+
+@utility industrial-card {
+  background-color: var(--color-steel);
+  color: var(--color-insulation);
+  border: 1px solid var(--color-steel-50);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-industrial);
+}
+
+@utility section-marker {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-copper);
+}
+
+@utility tech-label {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background-color: rgba(30, 74, 123, 0.08);
+  color: var(--color-blueprint);
+  font-family: var(--font-heading);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(30, 74, 123, 0.15);
+}
+
+@utility btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-xl);
+  background-color: var(--color-blueprint);
+  color: var(--color-insulation);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  transition: background-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+}
+
+@utility btn-accent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-xl);
+  background-color: var(--color-copper);
+  color: var(--color-insulation);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  transition: background-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+}
+
+@utility btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-xl);
+  background-color: transparent;
+  color: var(--color-blueprint);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-blueprint);
+  transition: background-color 200ms ease, color 200ms ease, transform 200ms ease;
+}
+
+@utility spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+@utility container-tight {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: var(--spacing-lg);
+}
+
+@utility container-wide {
+  width: 100%;
+  max-width: 1400px;
+  margin-inline: auto;
+  padding-inline: var(--spacing-lg);
+}
+
+@utility offset-frame {
+  position: relative;
+}
+
+@utility text-copper-gradient {
+  background-image: linear-gradient(135deg, var(--color-copper) 0%, var(--color-copper-200) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* =========================================================
+   Extended CSS Rules (flattened for browser compatibility)
+   ========================================================= */
+
+/* Offset frame pseudo-element */
+.offset-frame {
+  overflow: visible;
+}
+
+.offset-frame::before {
+  content: "";
+  position: absolute;
+  top: var(--spacing-md);
+  left: var(--spacing-md);
+  width: calc(100% - var(--spacing-md));
+  height: calc(100% - var(--spacing-md));
+  border: 1px solid var(--color-copper);
+  border-radius: var(--radius-md);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.offset-frame > img,
+.offset-frame > div {
+  position: relative;
+  z-index: 1;
+  border-radius: var(--radius-md);
+}
+
+/* Copper underline */
+.copper-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.copper-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -0.15em;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(90deg, var(--color-copper) 0%, rgba(196, 106, 58, 0.2) 100%);
+}
+
+/* Section marker pseudo-element */
+.section-marker::before {
+  content: "";
+  width: var(--spacing-md);
+  height: 2px;
+  background-color: var(--color-copper);
+}
+
+/* Grain overlay */
+.grain-overlay {
+  position: relative;
+  isolation: isolate;
+}
+
+.grain-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.05;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  animation: grain 8s steps(10) infinite;
+}
+
+.grain-overlay > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Bevel card hover */
+.bevel-card {
+  background-color: var(--color-insulation);
+  border: 1px solid var(--color-concrete-300);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-bevel);
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.bevel-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-bevel-hover);
+  border-color: var(--color-concrete);
+}
+
+/* Industrial card hover */
+.industrial-card {
+  background-color: var(--color-steel);
+  color: var(--color-insulation);
+  border: 1px solid var(--color-steel-50);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-industrial);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+/* Button hover states */
+.btn-primary:hover {
+  background-color: var(--color-blueprint-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(30, 74, 123, 0.25);
+}
+
+.btn-accent:hover {
+  background-color: var(--color-copper-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(196, 106, 58, 0.3);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-blueprint);
+  color: var(--color-insulation);
+  transform: translateY(-1px);
+}
+
+/* Button focus */
+.btn-primary:focus-visible,
+.btn-accent:focus-visible,
+.btn-outline:focus-visible {
+  outline: 2px solid var(--color-copper);
+  outline-offset: 3px;
+}
+
+/* Spec table */
+.spec-table th {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  text-align: left;
+  padding: var(--spacing-md);
+  background-color: var(--color-concrete-100);
+  color: var(--color-steel);
+  border-bottom: 2px solid var(--color-concrete-300);
+}
+
+.spec-table td {
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--color-concrete-200);
+  color: var(--color-steel-100);
+}
+
+.spec-table tr:hover td {
+  background-color: var(--color-concrete-50);
+}
+
+/* Shifting border */
+.shifting-border {
+  position: relative;
+  background: var(--color-insulation);
+  border-radius: var(--radius-md);
+}
+
+.shifting-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: calc(var(--radius-md) + 1px);
+  background: linear-gradient(90deg, var(--color-concrete-300), var(--color-copper), var(--color-blueprint), var(--color-concrete-300));
+  background-size: 300% 100%;
+  animation: shift-border 3s ease infinite;
+}
+
+/* Copper rule */
+.copper-rule {
+  width: 3px;
+  background: linear-gradient(180deg, var(--color-copper) 0%, rgba(196, 106, 58, 0.2) 100%);
+  border-radius: var(--radius-sm);
+}
+
+/* CTA section content */
+.cta-content {
+  width: 100%;
+  max-width: 600px;
+  margin-inline: auto;
+  display: block;
+}
+
+.cta-heading {
+  width: 100%;
+  max-width: 600px;
+  margin-inline: auto;
+  display: block;
+  color: var(--color-insulation);
+}
+
+.cta-description {
+  width: 100%;
+  max-width: 600px;
+  margin-inline: auto;
+  display: block;
+  color: var(--color-blueprint-900);
+}
+
+/* Footer grid layout */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+@media (min-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem;
+  }
+}
+
+/* Footer description text */
+.footer-description {
+  width: 100%;
+  max-width: 350px;
+  display: block;
+  line-height: 1.65;
+}
+
+/* Logo */
+.logo {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1;
+}
+
+.logo-trading {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 0.35em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.logo-trading > span {
+  display: inline-block;
+}
+
+/* Nav link hover underline */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-copper);
+  transition: width 300ms ease, left 300ms ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+  width: 75%;
+}
+
+/* Premium nav link */
+.nav-link-premium {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Sticky header transitions */
+.header-sticky {
+  transition: transform 0.8s ease, background-color 0.3s ease, backdrop-filter 0.3s ease;
+  box-shadow: none !important;
+  border: none !important;
+  border-bottom: none !important;
+}
+
+.nav-link-premium::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-copper), transparent);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link-premium:hover::after {
+  transform: scaleX(1);
+}
+
+/* =========================================================
+   Contact Page — layout hardening
+   ========================================================= */
+.contact-hero-title,
+.contact-hero-desc {
+  writing-mode: horizontal-tb !important;
+  word-break: normal !important;
+  white-space: normal !important;
+  width: auto !important;
+  max-width: none !important;
+  display: block !important;
+  flex-direction: row !important;
+  color: #ffffff !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6) !important;
+}
+
+.contact-main-grid {
+  display: grid !important;
+  gap: 2rem !important;
+  position: relative;
+  z-index: 0;
+}
+
+.contact-main-grid > * {
+  min-width: 0;
+  position: relative;
+}
+
+.contact-map-card {
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+.contact-branches-section {
+  padding-top: 5rem !important;
+  padding-bottom: 5rem !important;
+  margin-top: 2rem !important;
+}
