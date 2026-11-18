@@ -9,13 +9,13 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('http://localhost:3000'),
+  metadataBase: new URL('https://suvi-trading.vercel.app/'),
   title: {
-    default: 'SuVi Trading',
+    default: 'SuVi Trading | Industrial Hardware & MEP Supplies',
     template: '%s | SuVi Trading',
   },
   description:
-    'SuVi Trading supplies multi-brand industrial hardware — pumps, copper pipes, insulation, pipe supports, and MEP consumables — to contractors, engineers, and procurement teams.',
+    'Reliable supplier of industrial hardware, pumps, copper pipes, insulation, and MEP consumables. Quality products and dependable supply solutions for businesses.',
   keywords: [
     'industrial hardware',
     'MEP supplies',
@@ -26,10 +26,23 @@ export const metadata: Metadata = {
     'HVAC supplies',
     'procurement',
   ],
+  icons: {
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
+  },
   openGraph: {
-    title: 'SuVi Trading',
+    title: 'SuVi Trading | Industrial Hardware & MEP Supplies',
     description:
-      'Reliable industrial hardware supplies for MEP contractors, HVAC companies, and procurement teams.',
+      'Reliable supplier of industrial hardware, pumps, copper pipes, insulation, and MEP consumables. Quality products and dependable supply solutions for businesses.',
+    images: ['/og-image.jpg'],
+    url: 'https://suvi-trading.vercel.app/',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'SuVi Trading | Industrial Hardware & MEP Supplies',
+    description:
+      'Reliable supplier of industrial hardware, pumps, copper pipes, insulation, and MEP consumables. Quality products and dependable supply solutions for businesses.',
     images: ['/og-image.jpg'],
   },
 };

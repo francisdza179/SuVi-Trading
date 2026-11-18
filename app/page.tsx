@@ -14,13 +14,20 @@ import { CTASection } from '@/sections/cta-section';
 import { Footer } from '@/sections/footer';
 
 export const metadata: Metadata = {
-  title: 'Industrial Hardware Supplier | Pumps, Pipes, Insulation',
+  title: 'SuVi Trading | Industrial Hardware & MEP Supplies',
   description:
-    'SuVi Trading supplies multi-brand industrial hardware including pumps, copper pipes, insulation, pipe supports, hangers, and MEP consumables for contractors and engineers.',
+    'Reliable supplier of industrial hardware, pumps, copper pipes, insulation, and MEP consumables. Quality products and dependable supply solutions for businesses.',
   openGraph: {
-    title: 'SuVi Trading — Industrial Hardware Supplier',
+    title: 'SuVi Trading | Industrial Hardware & MEP Supplies',
     description:
-      'Reliable pumps, copper pipes, insulation, and MEP consumables for contractors and engineers.',
+      'Reliable supplier of industrial hardware, pumps, copper pipes, insulation, and MEP consumables. Quality products and dependable supply solutions for businesses.',
+    images: ['/og-image.jpg'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'SuVi Trading | Industrial Hardware & MEP Supplies',
+    description:
+      'Reliable supplier of industrial hardware, pumps, copper pipes, insulation, and MEP consumables. Quality products and dependable supply solutions for businesses.',
     images: ['/og-image.jpg'],
   },
 };
