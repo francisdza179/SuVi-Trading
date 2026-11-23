@@ -105,12 +105,12 @@ export function Hero(): ReactElement {
 
   return (
     <section className="relative overflow-hidden bg-steel min-h-[90vh] flex flex-col">
-      <div className={`absolute inset-0 transition-opacity duration-800 ease-out ${visible ? 'opacity-100' : 'opacity-0'}`}>
+      <div className={`absolute inset-0 z-0 transition-opacity duration-800 ease-out ${visible ? 'opacity-100' : 'opacity-0'}`}>
         <Image src={slide.image} alt={slide.headline} fill priority className="object-cover" sizes="100vw" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/10" />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.82), rgba(0,0,0,0.5), rgba(0,0,0,0.2))', zIndex: 10, pointerEvents: 'none' }} />
       </div>
 
-      <div className="relative z-10 flex-1 flex flex-col justify-center w-full max-w-[1200px] mx-auto px-6 py-24 lg:py-32">
+      <div className="relative z-20 flex-1 flex flex-col justify-center w-full max-w-[1200px] mx-auto px-6 py-24 lg:py-32">
         <div style={{ maxWidth: '760px', display: 'flex', flexDirection: 'column' }}>
           {/* Slide progress indicator */}
           <div className={`transition-all duration-[800ms] ease-out ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`} style={{ transitionDelay: '0ms' }}>
@@ -198,7 +198,7 @@ export function Hero(): ReactElement {
         <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
       </button>
 
-      <div className="pointer-events-none absolute inset-0 blueprint-grid opacity-20" />
+      <div className="pointer-events-none absolute inset-0 blueprint-grid opacity-20" style={{ zIndex: 5 }} />
     </section>
   );
 }
