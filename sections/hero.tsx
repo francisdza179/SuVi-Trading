@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactElement } from 'react';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -37,11 +37,12 @@ export function Hero(): ReactElement {
   const [index, setIndex] = useState(0);
   const [shownIndex, setShownIndex] = useState(0);
   const [visible, setVisible] = useState(true);
+  const firstRun = useRef(true);
   const [paused, setPaused] = useState(false);
   const [count500, setCount500] = useState(0);
   const [count40, setCount40] = useState(0);
-  const [statsVisible, setStatsVisible] = useState(false);
-  const [stripReady, setStripReady] = useState(false);
+  const [statsVisible, setStatsVisible] = useState(true);
+  const [stripReady, setStripReady] = useState(true);
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -71,6 +72,10 @@ export function Hero(): ReactElement {
   }, []);
 
   useEffect(() => {
+    if (firstRun.current) {
+      firstRun.current = false;
+      return;
+    }
     setVisible(false);
     const t = setTimeout(() => {
       setShownIndex(index);
@@ -113,27 +118,27 @@ export function Hero(): ReactElement {
       <div className="relative z-20 flex-1 flex flex-col justify-center w-full max-w-[1200px] mx-auto px-6 py-24 lg:py-32">
         <div style={{ maxWidth: '760px', display: 'flex', flexDirection: 'column' }}>
           {/* Slide progress indicator */}
-          <div className={`transition-all duration-[800ms] ease-out ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`} style={{ transitionDelay: '0ms' }}>
+          <div>
             <div className="text-xs font-semibold tracking-[0.2em] text-copper mb-6" style={{ whiteSpace: 'nowrap' }}>
               {String(shownIndex + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')} — {slide.label}
             </div>
           </div>
 
-          <h1 className={`font-heading text-3xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl !text-white whitespace-pre-line transition-all duration-[800ms] ease-out ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`} style={{ transitionDelay: '100ms', whiteSpace: 'pre-line', minHeight: '7.75rem' }}>
+          <h1 className="font-heading text-3xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl !text-white whitespace-pre-line" style={{ whiteSpace: 'pre-line', minHeight: '7.75rem', color: '#ffffff' }}>
             {slide.headline}
           </h1>
-          <p className={`mt-6 text-lg leading-relaxed text-insulation/80 md:text-xl transition-all duration-[800ms] ease-out ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`} style={{ transitionDelay: '200ms' }}>
+          <p className="mt-6 text-lg leading-relaxed text-insulation/80 md:text-xl" style={{ color: 'rgba(255,255,255,0.8)' }}>
             {slide.subheadline}
           </p>
 
           {/* Custom metric callout */}
-          <div className={`mt-8 flex items-center gap-4 flex-nowrap transition-all duration-[800ms] ease-out ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`} style={{ transitionDelay: '300ms' }}>
+          <div className="mt-8 flex items-center gap-4 flex-nowrap">
             <span className="font-heading text-5xl font-extrabold text-copper" style={{ whiteSpace: 'nowrap' }}>{slide.metric.value}</span>
             <span className="text-xs sm:text-sm font-medium text-insulation/90 uppercase tracking-wider" style={{ whiteSpace: 'nowrap' }}>{slide.metric.text}</span>
           </div>
 
           {/* Uniform CTA buttons */}
-          <div className={`mt-8 flex flex-wrap items-center gap-4 transition-all duration-[800ms] ease-out ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`} style={{ transitionDelay: '400ms' }}>
+          <div className="mt-8 flex flex-wrap items-center gap-4">
             <Link href={slide.href} className="btn-primary text-center justify-center" style={{ minWidth: '240px' }}>{slide.cta}</Link>
             <Link href="/contact" className="btn-accent text-center justify-center" style={{ minWidth: '240px' }}>Request a Quote</Link>
           </div>
@@ -197,8 +202,6 @@ export function Hero(): ReactElement {
       <button type="button" aria-label="Next slide" onClick={() => goTo(index + 1)} onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)} className="absolute right-4 top-1/2 z-20 hidden -translate-y-1/2 rounded-full border border-insulation/20 bg-steel/40 p-3 text-insulation transition hover:bg-steel/70 md:block cursor-pointer">
         <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
       </button>
-
-      <div className="pointer-events-none absolute inset-0 blueprint-grid opacity-20" style={{ zIndex: 5 }} />
     </section>
   );
 }
