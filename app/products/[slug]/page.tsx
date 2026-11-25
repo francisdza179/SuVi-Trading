@@ -258,7 +258,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps): P
             </div>
 
             <div className="grid gap-10 lg:grid-cols-2">
-              <div className="sticky top-28 p-2">
+              <div className="static p-2 lg:sticky lg:top-28">
                 <div className="relative h-[640px] w-full overflow-hidden rounded-2xl bg-white">
                   {image ? (
                     <Image

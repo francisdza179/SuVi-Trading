@@ -55,7 +55,7 @@ export function AboutHome(): ReactElement {
 
   const collage = (
     <div
-      className={`relative h-[420px] overflow-hidden rounded-3xl shadow-xl transition-all duration-700 ease-out ${
+      className={`relative h-[420px] min-h-[420px] overflow-hidden rounded-3xl shadow-xl transition-all duration-700 ease-out lg:h-full lg:min-h-0 ${
         inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       }`}
       style={{ transitionDelay: inView ? '200ms' : '0ms' }}
@@ -123,7 +123,7 @@ export function AboutHome(): ReactElement {
   return (
     <section ref={sectionRef} className="bg-white py-20 lg:py-28">
       <div className="container-tight">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="grid items-stretch gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Content side */}
           <div
             className={`transition-all duration-700 ease-out ${
